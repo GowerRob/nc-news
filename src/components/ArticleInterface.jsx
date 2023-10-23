@@ -9,11 +9,9 @@ const ArticleInterface = ()=>{
 
 
     return (
-        <div>
-            <h1>Article interface here</h1>
-
-              
-        </div>
+        <>
+            <h1>Article interface here</h1>   
+        </>
     )
 
 

@@ -7,11 +7,11 @@ const CommentInterface = ()=>{
 
 
     return (
-        <div>
+        <section>
             <h1>Comment interface here</h1>
 
               
-        </div>
+        </section>
     )
 
 
