@@ -3,30 +3,16 @@ import React from 'react'
 
 const ArticleCard = ({article})=>{
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-    }
-
-    console.log(article.id)
-
-
     return (
-        <div className="ArticleCard">
+        <article className="ArticleCard">
+            <img className="article_img" src="https://source.unsplash.com/a-cup-of-coffee-and-a-pair-of-glasses-on-a-newspaper-Wh9ZC4727e4"></img>
             <div className="card_body">
                 <h2 className="card_title">{article.title}</h2>
-                <h3 className="card_topic">{article.topic}</h3>
-                <h3 className="card_votes">{article.votes}</h3>
-                <h3 >{article.article_id}</h3>
-                 <a href={`http://localhost:5173/article/${article.article_id}`}>Go to article</a>
-                
-                
-        
-                
-                
-                </div> 
-              
-        </div>
+                <p className="card_topic">{article.topic}</p>
+                <p className="card_votes">{article.votes}</p>
+                 <Link to='#'>Go to article</Link>  
+            </div>   
+        </article>
     )
 
 

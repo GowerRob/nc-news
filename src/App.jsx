@@ -17,7 +17,6 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />}></Route>
         <Route path="/articles" element={<ArticleList />}></Route>
-        <Route path="/article/:article_id" element={<ArticlePage />} />
 
       </Routes>
       
