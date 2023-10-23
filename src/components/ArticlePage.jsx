@@ -6,14 +6,6 @@ import CommentInterface from "./CommentInterface";
 
 
 const ArticlePage = ()=>{
-    const {article_id} = useParams();
-    const [isLoading, setIsLoading] = useState(true);
-    const [article, setArticle]=useState({});
-
-    useEffect(()=>{
-
-
-    },[])
 
     return (
         <div>

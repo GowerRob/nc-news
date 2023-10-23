@@ -39,3 +39,9 @@
     height: 50px;
     object-fit: cover;
 }
+
+.ArticleInterface{
+border:3px solid blue;
+margin-bottom:2rem;
+
+}
