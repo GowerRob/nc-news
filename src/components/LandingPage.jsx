@@ -4,10 +4,9 @@ import React from 'react'
 const LandingPage = ()=>{
 
     return (
-        <div>
-                    <h1>You Landed</h1>
-              
-        </div>
+        <section>
+            <h1>You Landed</h1>  
+        </section>
     )
 
 

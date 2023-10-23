@@ -1,6 +1,6 @@
 import ArticleCard from './ArticleCard'
-import axios from 'axios';
 import {useEffect, useState} from 'react'
+import {getArticles} from '../apis/api'
 
 const ArticleList = ()=>{
 
@@ -9,33 +9,28 @@ const ArticleList = ()=>{
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(()=>{
-        // axios
-        // .get('https://newsservicerg.onrender.com/api/articles')
-        // .then((response)=>{
-        //     setArticles(response.data.articles)
-        //     }
-        // )
-        fetch('https://newsservicerg.onrender.com/api/articles')
-        .then((response) => response.json())
-        .then((response) => {
-        setArticles(response.articles);
-        setIsLoading(false);
-      });
+
+        getArticles().then((articles)=>{
+            setArticles(articles)
+            setIsLoading(false);
+        })
+
+       
+
     },[])
 
 
     return (
-        <div className="ArticleList">       
+        <ul className="ArticleList">       
             {articles.map((article)=>{
                 return(
-                   <div key={article.article_id}>
+                   <li key={article.article_id}>
                         <ArticleCard article={article}/>
-
-                   </div>
+                   </li>
                 )
             })}
             <button>Add Article</button>
-        </div>
+        </ul>
     )
 
 

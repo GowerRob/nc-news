@@ -19,10 +19,7 @@ const ArticlePage = ()=>{
         <div>
             <ArticleInterface />
             <CommentInterface />
-                
-                
-
-              
+                        
         </div>
     )
 

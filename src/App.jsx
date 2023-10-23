@@ -5,23 +5,21 @@ import Header from './components/Header';
 import NavBar from './components/NavBar';
 import ArticleList from './components/ArticleList';
 import LandingPage from './components/LandingPage';
-import ArticlePage  from "./components/ArticlePage";
 
 function App() {
 
   return (
-    <div>
+    <>
       <Header />
       <NavBar />
 
       <Routes>
         <Route path="/" element={<LandingPage />}></Route>
         <Route path="/articles" element={<ArticleList />}></Route>
-        <Route path="/article/:article_id" element={<ArticlePage />} />
 
       </Routes>
       
-    </div>
+    </>
   )
 }
 

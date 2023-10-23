@@ -2,9 +2,9 @@
 const NavBar = ()=>{
 
     return (
-        <div className="NavBar">
+        <navbar className="NavBar">
            <h1>NavBar</h1>     
-        </div>
+        </navbar>
     )
 
 

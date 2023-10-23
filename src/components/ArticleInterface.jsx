@@ -18,8 +18,6 @@ const ArticleInterface = ()=>{
 
 
 
-
-
     return (
         <div>
             <h1>Article Interface</h1>
