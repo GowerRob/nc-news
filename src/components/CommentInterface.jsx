@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import {getCommentsById} from '../apis/api'
-
+import CommentCard from "./CommentCard";
 
 const CommentInterface = ()=>{
     const {article_id} = useParams();
@@ -23,11 +23,11 @@ const CommentInterface = ()=>{
 
     return (
         <section>
-            <h1>Comment interface here</h1>
+            <h1>Comments</h1>
             { <ul className="CommentsList">
                 {comments.map((comment)=>{
                     return(
-                        <h1 key={comment.comment_id}>{comment.body}</h1>
+                        <li><CommentCard comment={comment}/></li>
 
                     )
                 })
