@@ -19,6 +19,7 @@ const ArticleList = ()=>{
 
     },[])
 
+    if (isLoading) return <p>Loading articles, please wait</p>
 
     return (
         <ul className="ArticleList">       

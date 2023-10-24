@@ -31,14 +31,18 @@ const ArticleInterface = ()=>{
     if(isLoading){return <p>Loading, please wait</p>}
     return (
         <section  className="ArticleInterface">
-            <h1>Article Interface</h1>
-            <p>{article.title}</p>
-            <p>{article.article_id}</p>
-            <p>{article.topic}</p>
-            <p>{article.author}</p>
-            <p>{article.body}</p>
+            <img className="article_img" src="https://source.unsplash.com/a-woman-sitting-on-a-couch-using-a-laptop-computer-VCQw618ZorY"></img>
+            <section className="articleWrapper">
+            <p className="articleTopic">{article.topic}</p>
+            <p className="articleAuthor">{article.author}</p>
+            <p className="articleTimeDate">{article.created_at}</p>
+            <p className="articleBody">{article.body}</p>
+            <p className="articleTitle">{article.title}</p>
             <Voter type={"Votes"} votes={article.votes} update={updateArticleLikes}/>
+            
             <button>Delete Article</button>
+            </section>
+
         </section>
     )
 

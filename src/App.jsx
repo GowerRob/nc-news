@@ -11,8 +11,8 @@ function App() {
 
   return (
     <>
-      <Header />
       <NavBar />
+      <Header />
 
       <Routes>
         <Route path="/" element={<LandingPage />}></Route>
