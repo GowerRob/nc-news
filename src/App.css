@@ -1,3 +1,17 @@
+:root{
+
+    --clr-primary:#7806b1;
+    --clr-white: #ffffff;
+    --clr-background:#eceff1;
+    --clr-gray:#263238;
+}
+
+#root{
+
+    font-family: "Open Sans", sans-serif;
+}
+
+
 *,
 *::before,
 *::after{
@@ -7,26 +21,58 @@
 }
 
 .pageHeader{
-    background-color:pink;
+    background-color:var(--clr-background);
+    padding-left:2rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color:var(--clr-gray);
+    padding-top:2rem
 }
 
 .NavBar{
-    background-color:rgb(214, 214, 106);
+    background-color:var(--clr-primary);
+    color:var(--clr-white);
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    height:3em;
+    list-style: none;
 }
 
+.NavBar li{
+    font-size:1.5rem;
+    font-weight: bold;
+    padding-right:2em;
+
+}
+
+.NavBar li:first-child{
+    margin-right: auto;
+    padding-left: 2rem;
+}
+
+.Link{
+    color:var(--clr-white);
+    text-decoration: none;
+
+}
 .ArticleList{
+
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     justify-content: center;
     gap:1rem;
-    width:100%;
-    border:2px solid black;
+    background-color: var(--clr-background);
+    list-style: none;
+    padding:1em;
 }
 
 .ArticleCard{
+    background-color: var(--clr-white);
     box-shadow: 0 0 10px 5px var(grey);
     border-radius:0.5rem;
-    border:2px solid black;
+    padding:1em;
+    border-top: 4px solid var(--clr-primary);
 
 }
 
@@ -34,20 +80,92 @@
     content:"Votes: "
 }
 
+.card_topic{
+    text-transform: uppercase;
+    grid-area: topic;
+}
+
+
+.article_img_card{
+width:100%;
+height:60px;
+object-fit:cover;
+
+}
 .article_img{
-    width:100%;
-    height: 50px;
-    object-fit: cover;
+    width:60px;
+    height:60px;
+    object-fit:cover;
+    border-radius: 50%;
+
+}
+.articleTitle{
+    grid-area:title;
+}
+
+.articleAuthor{
+    grid-area: username-date;
+}
+
+.articleTimeDate{
+    grid-area: username-date;
+    padding-left: 10rem;
+}
+
+.articleBody{
+    padding-top:1rem;
+    grid-area: textbody;
+}
+.card_title{
+    font-size:1rem;
+    margin-bottom:1.5rem;
 }
 
 .ArticleInterface{
-border:3px solid blue;
-margin-bottom:2rem;
+    display:flex;
+    margin:1rem 1rem 2rem 1rem;
+    padding:1rem;
 
+}
+
+.articleWrapper{
+    display:grid;
+    grid-template-columns: 2fr;
+    margin-left:0.5rem;
+    grid-template-areas: "title topic"
+                        "username-date username-date"
+                        "textbody textbody"
+                        "voting voting"
+                        "delete delete";
 }
 
 .CommentCard{
     margin:1rem;
     border:2px solid red;
 
+}
+
+
+@media screen and (max-width:850px){
+
+    .NavBar li{
+        font-size:0.75rem;
+
+    
+    }
+}
+
+
+
+@media screen and (max-width:550px){
+
+    .ArticleList{
+        grid-template-columns: 1fr;
+    }
+
+    .NavBar li{
+        font-size:0.5rem;
+
+    
+    }
 }
