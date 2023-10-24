@@ -1,4 +1,4 @@
-
+import dateFormat, { masks } from "dateformat";
 
 const CommentCard = ({comment})=>{
 return(
@@ -6,7 +6,7 @@ return(
         <ul>
             <li>{comment.body}</li>
             <li>{comment.votes}</li>
-            <li>{comment.created_at}</li>
+            <li>{dateFormat(comment.created_at,"dddd, mmmm dS, yyyy, h:MM:ss TT")}</li>
             <li>{comment.author}</li>
             <button>Upvote Comment</button>
             <button>Downvote Comment</button>
