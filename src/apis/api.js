@@ -19,3 +19,13 @@ export const getArticleById = (article_id)=>{
     })
 
 }
+
+export const updateArticleVotes = (article_id, votes)=>{
+    
+    return newsApi.patch(`/articles/${article_id}`,
+    {"inc_votes":votes}).then((res)=>{
+        return res
+    })
+
+
+}
