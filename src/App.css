@@ -145,6 +145,10 @@ object-fit:cover;
 
 }
 
+#newComment{
+    width:400px;
+    height:50px;
+}
 
 @media screen and (max-width:850px){
 
