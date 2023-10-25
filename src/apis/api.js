@@ -1,11 +1,19 @@
 import axios from 'axios'
 
+
+
 const newsApi= axios.create({
     baseURL:'https://newsservicerg.onrender.com/api'
 });
 
-export const getArticles = () => {
-    return newsApi.get('/articles')
+export const getArticles = (searchParams) => {
+    const order=searchParams.get('order');
+    const sort_by=searchParams.get('sort_by')
+    console.log("Got ", order," ", sort_by)
+
+    return newsApi.get('/articles',{
+        params:{order:order,sort_by:sort_by}
+    })
     .then((res)=>{
         return res.data.articles;
     })
