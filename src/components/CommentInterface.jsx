@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import {getCommentsById} from '../apis/api'
 import CommentCard from "./CommentCard";
+import NewComment from "./NewComment"
 
 const CommentInterface = ()=>{
     const {article_id} = useParams();
@@ -16,18 +17,20 @@ const CommentInterface = ()=>{
             setIsLoading(false);
 
         })
-
     },[])
 
+
+    
     if (isLoading) return <p>Loading, please wait</p>
 
     return (
         <section>
             <h1>Comments</h1>
+            <NewComment setComments={setComments}/>
             { <ul className="CommentsList">
                 {comments.map((comment)=>{
                     return(
-                        <li><CommentCard comment={comment}/></li>
+                        <li key={comment.comment_id}><CommentCard comment={comment} /></li>
 
                     )
                 })

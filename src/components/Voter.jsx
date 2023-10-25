@@ -16,7 +16,7 @@ const Voter = ({type, votes,update}) => {
 
 
 return(
-    <div>
+    <article>
         <p>{type} : {votes+userVotes}</p>
         <button 
         disabled={userVotes===1}
@@ -29,7 +29,7 @@ return(
         aria-label="dislike" 
         onClick={()=>{updateVotes(-1)}}
         >Decrease Vote</button>
-    </div>
+    </article>
 
 )
 

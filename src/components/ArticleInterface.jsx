@@ -21,7 +21,6 @@ const ArticleInterface = ()=>{
 
     const updateArticleLikes = (value)=>{
         updateArticleVotes(article_id,value).catch(()=>{
-            console.log("An error occured")
         })
         
         

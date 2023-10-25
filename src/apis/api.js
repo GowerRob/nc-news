@@ -7,7 +7,6 @@ const newsApi= axios.create({
 export const getArticles = () => {
     return newsApi.get('/articles')
     .then((res)=>{
-        console.log("Hello")
         return res.data.articles;
     })
 
@@ -30,8 +29,19 @@ export const updateArticleVotes = (article_id, votes)=>{
 }
 
 export const getCommentsById = (article_id)=>{
+    console.log("Firing");
     return newsApi.get(`/articles/${article_id}/comments`)
     .then((res)=>{
         return res.data.comments;
     })
+}
+
+export const postNewComment = (article_id,comment)=>{
+    
+
+
+    return newsApi.post(`/articles/${article_id}/comments`,
+    comment)
+
+
 }
