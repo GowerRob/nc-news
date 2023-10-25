@@ -17,24 +17,20 @@ const CommentInterface = ()=>{
             setIsLoading(false);
 
         })
+    },[])
 
-    },[comments])
 
-    const rerender=()=>{
-        setComments(comments);
-
-    }
-
+    
     if (isLoading) return <p>Loading, please wait</p>
 
     return (
         <section>
             <h1>Comments</h1>
-            <NewComment update={rerender}/>
+            <NewComment setComments={setComments}/>
             { <ul className="CommentsList">
                 {comments.map((comment)=>{
                     return(
-                        <li><CommentCard comment={comment} /></li>
+                        <li key={comment.comment_id}><CommentCard comment={comment} /></li>
 
                     )
                 })

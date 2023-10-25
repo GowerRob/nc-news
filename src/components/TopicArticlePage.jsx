@@ -1,34 +1,29 @@
-import {useLocation} from 'react-router-dom'
+// import {useLocation} from 'react-router-dom'
 import {getArticles} from '../apis/api'
 import {useEffect, useState} from 'react'
 import ArticleCard from './ArticleCard'
-
+import { useParams } from "react-router-dom";
 
 const TopicArticlePage = ()=>{
-    const location = useLocation();
-    const {from} = location.state;
+    // const location = useLocation();
+    // const {from} = location.state;
+    const {topic} = useParams() ;
+
 
     const [articles,setArticles]=useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [filteredArticles,setFilteredArticles]=useState([]);
 
     useEffect(()=>{
-        console.log(from)
         getArticles()
         .then((articles)=>{
             setArticles(articles)
-            console.log(articles)
             const filtered=articles.filter((article)=>{
-              return article.topic===from
+              return article.topic===topic
             })
-            console.log(filtered)
             setFilteredArticles(filtered);
             setIsLoading(false);
         })
-
-
-       
-
     },[])
 
 

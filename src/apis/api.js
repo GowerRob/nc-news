@@ -36,7 +36,6 @@ export const getCommentsById = (article_id)=>{
 }
 
 export const postNewComment = (article_id,comment)=>{
-
     return newsApi.post(`/articles/${article_id}/comments`,
     comment)
 

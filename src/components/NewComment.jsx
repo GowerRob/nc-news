@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 import {postNewComment} from '../apis/api'
-const NewComment = ({update})=>{
+const NewComment = ({comments,setComments})=>{
     const {article_id} = useParams();
     const [username, setUsername]=useState("")
     const [newComment, setNewComment]=useState("")
@@ -12,7 +12,7 @@ const NewComment = ({update})=>{
     const [processingPost,setProcessingPost]=useState(false)
     const [postSuccess,setPostSuccess]=useState(false)
     const [postFail,setPostFail]=useState(false)
-
+    const [optimisticCount, setOptimisticCount]=useState(-1)
 
     const handleToggle = (e)=>{
         e.preventDefault();
@@ -32,6 +32,31 @@ const NewComment = ({update})=>{
         }
         setProcessingPost(true);
         setDisplayToggle(false);
+
+        const timeStamp=moment().format('YYYY-MM-DDTHH:mm:ss');
+
+        const optimisticCommentObj={
+            comment_id:optimisticCount,
+            body:newComment,
+            author:username,
+            article_id:article_id,
+            votes:0,
+            created_at:timeStamp
+
+        }
+
+        setOptimisticCount((currentCount)=>{
+            return currentCount-1
+        })
+
+        setComments((currentComments)=>{
+            const copyCurrent=[...currentComments]
+            copyCurrent.unshift(optimisticCommentObj)
+            console.log(copyCurrent);
+            return copyCurrent
+        })
+
+
         postNewComment(article_id,postableComment)
         .then((response)=>{
             console.log("Response",response)
@@ -39,11 +64,10 @@ const NewComment = ({update})=>{
             setPostData(response)
             console.log("PostData",postData)
             setPostSuccess(true)
-            update();
 
-    
         }).catch((res)=>
-        {setPostFail(true)
+        {   console.log("In catch",res)
+            setPostFail(true)
         })
  
   
