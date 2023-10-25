@@ -30,7 +30,7 @@ const CommentInterface = ()=>{
             { <ul className="CommentsList">
                 {comments.map((comment)=>{
                     return(
-                        <li key={comment.comment_id}><CommentCard comment={comment} /></li>
+                        <li key={comment.comment_id}><CommentCard comment={comment} setComments={setComments} /></li>
 
                     )
                 })
