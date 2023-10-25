@@ -29,6 +29,7 @@ export const updateArticleVotes = (article_id, votes)=>{
 }
 
 export const getCommentsById = (article_id)=>{
+    console.log("Firing");
     return newsApi.get(`/articles/${article_id}/comments`)
     .then((res)=>{
         return res.data.comments;
@@ -36,7 +37,7 @@ export const getCommentsById = (article_id)=>{
 }
 
 export const postNewComment = (article_id,comment)=>{
-    console.log(comment);
+    
 
 
     return newsApi.post(`/articles/${article_id}/comments`,
