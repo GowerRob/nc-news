@@ -1,11 +1,9 @@
-import { Link } from "react-router-dom";
 import React, { useState, useEffect } from 'react'
-import { useParams } from "react-router-dom";
-
+import TopicCard from './TopicCard'
 import {getTopics} from '../apis/api'
 
 
-const TopicPage = ()=>{
+const TopicList = ()=>{
 
 const [topics,setTopics]=useState([])
 const [isLoading, setIsLoading] = useState(true);
@@ -25,19 +23,24 @@ const [isLoading, setIsLoading] = useState(true);
 
 
     return (
-        <div>
+        <>
             <h1>Topics</h1>
-            {topics.map((topic)=>{
-                return(
-                   <li key={topic.slug}>
-                        <h1>{topic.slug}</h1>
-                   </li>
-                )
-            })} 
-        </div>
+            <ul className="TopicList">
+                {topics.map((topic)=>{
+                    return(
+                    <li key={topic.slug}>
+                            <TopicCard topic={topic}/>
+                    </li>
+                    )
+                })
+                } 
+
+            </ul>
+
+        </>
     )
 
 
 }
 
-export default TopicPage;
+export default TopicList;
