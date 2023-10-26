@@ -6,6 +6,8 @@ import NavBar from './components/NavBar';
 import ArticleList from './components/ArticleList';
 import LandingPage from './components/LandingPage';
 import ArticlePage from './components/ArticlePage'
+import TopicList from './components/TopicList';
+import TopicArticlePage from './components/TopicArticlePage';
 
 function App() {
 
@@ -18,6 +20,8 @@ function App() {
         <Route path="/" element={<LandingPage />}></Route>
         <Route path="/articles" element={<ArticleList />}></Route>
         <Route path="/article/:article_id" element={<ArticlePage />}></Route>
+        <Route path="/topics" element={<TopicList />}></Route>
+        <Route path="/articles/topics/:topic" element={<TopicArticlePage />}></Route>
       </Routes>
       
     </>
