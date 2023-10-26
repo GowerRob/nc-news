@@ -11,7 +11,7 @@ const ArticleCard = ({article})=>{
                 <h2 className="card_title">{article.title}</h2>
                 
                 <p className="card_votes">{article.votes}</p>
-                 <Link to={`/article/${article.article_id}`}> Go to article</Link>  
+                 <Link to={`/articles/${article.article_id}`}> Go to article</Link>  
             </div>   
         </article>
     )
