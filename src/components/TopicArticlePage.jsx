@@ -10,14 +10,13 @@ const TopicArticlePage = ()=>{
     const {topic} = useParams() ;
 
 
-    const [articles,setArticles]=useState([]);
+
     const [isLoading, setIsLoading] = useState(true);
     const [filteredArticles,setFilteredArticles]=useState([]);
 
     useEffect(()=>{
         getArticles()
         .then((articles)=>{
-            setArticles(articles)
             const filtered=articles.filter((article)=>{
               return article.topic===topic
             })
