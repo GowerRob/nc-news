@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {getArticleById, updateArticleVotes} from '../apis/api'
 import '../App.css'
 import Voter from './Voter'
@@ -9,6 +9,7 @@ const ArticleInterface = ()=>{
     const {article_id} = useParams();
     const [isLoading, setIsLoading] = useState(true);
     const [article, setArticle]=useState({});
+    const navigate=useNavigate();
 
     useEffect(()=>{
         getArticleById(article_id)
@@ -16,13 +17,16 @@ const ArticleInterface = ()=>{
             setArticle(article);
             setIsLoading(false);
         })
+        .catch((error)=>{
+            navigate('/noarticle')
+        })
+
 
     },[])
 
     const updateArticleLikes = (value)=>{
         updateArticleVotes(article_id,value).catch(()=>{
         })
-        
         
     }
 

@@ -15,7 +15,6 @@ const ArticleList = ()=>{
 
 
     useEffect(()=>{
-
         getArticles(searchParams).then((articles)=>{
             setArticles(articles)
             setIsLoading(false);

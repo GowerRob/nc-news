@@ -2,20 +2,25 @@
 import {getArticles} from '../apis/api'
 import {useEffect, useState} from 'react'
 import ArticleCard from './ArticleCard'
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams,useSearchParams  } from "react-router-dom";
 
 const TopicArticlePage = ()=>{
     const {topic} = useParams() ;
 
     const [isLoading, setIsLoading] = useState(true);
     const [filteredArticles,setFilteredArticles]=useState([]);
+    const [searchParams, setSearchParams]=useSearchParams({order:'asc',sort_by:'votes'});
+    const navigate=useNavigate()
 
     useEffect(()=>{
-        getArticles()
+        getArticles(searchParams)
         .then((articles)=>{
             const filtered=articles.filter((article)=>{
               return article.topic===topic
             })
+            if(filtered.length===0){
+                navigate('/notopic')
+            }
             setFilteredArticles(filtered);
             setIsLoading(false);
         })

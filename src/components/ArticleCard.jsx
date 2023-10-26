@@ -16,7 +16,7 @@ const ArticleCard = ({article})=>{
                 <p className="card_date">{moment(article.created_at, moment.ISO_8601).format('LLLL')}</p>
                 <p className="card_comments">{article.comment_count}</p>
                 <p className="card_votes">{article.votes}</p>
-                 <Link to={`/article/${article.article_id}`}> Go to article</Link>  
+                 <Link to={`/articles/${article.article_id}`}> Go to article</Link>  
             </div>   
         </article>
     )

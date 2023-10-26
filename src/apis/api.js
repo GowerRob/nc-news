@@ -1,12 +1,10 @@
 import axios from 'axios'
 
-
-
 const newsApi= axios.create({
     baseURL:'https://newsservicerg.onrender.com/api'
 });
 
-export const getArticles = (searchParams) => {
+export const getArticles = (searchParams={order:'asc',sort_by:'created_at'}) => {
     const order=searchParams.get('order');
     const sort_by=searchParams.get('sort_by')
     return newsApi.get('/articles',{
@@ -23,7 +21,8 @@ export const getArticleById = (article_id)=>{
     .then((res)=>{
         return res.data.article;
     })
-}
+
+};
 
 
 export const updateArticleVotes = (article_id, votes)=>{
