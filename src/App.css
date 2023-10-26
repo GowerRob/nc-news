@@ -98,6 +98,14 @@
 
 }
 
+.card_date{
+    
+}
+
+.card_comments:before{
+    content:"Comments: "
+}
+
 
 .card_votes:before{
     content:"Votes: "
