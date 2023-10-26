@@ -20,13 +20,34 @@
   padding:0;
 }
 
+
+
+.pageWrapper{
+    height:100vh;
+    display:flex;
+    flex-direction: column;
+
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  font-size:3rem;
+  padding-top:0.4rem
+}
+
 .pageHeader{
+    display:flex;
     background-color:var(--clr-background);
     padding-left:2rem;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: bold;
     color:var(--clr-gray);
-    padding-top:2rem
+    padding:1rem;
+    align-items: center;
 }
 
 .NavBar{
@@ -46,16 +67,62 @@
 
 }
 
-.NavBar li:first-child{
-    margin-right: auto;
-    padding-left: 2rem;
-}
 
 .Link{
     color:var(--clr-white);
     text-decoration: none;
 
 }
+
+.NavBar .Link:first-child{
+    margin-right: auto;
+    padding-left: 2rem;
+}
+
+/* Landing Page */
+.LandingWrapper{
+    display: flex;
+    grid-template-columns: 1fr;
+    /* grid-template-rows: 100%; */
+    height:100%;
+    justify-content: space-between;
+
+}
+
+.LandingRight img{
+    max-width:100%;
+    height:auto;
+    object-fit:fill;
+    flex-grow:4;
+   
+}
+
+.LandingWords{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border:1px solid black;
+    flex-grow:3;
+}
+
+.LandingText1{
+    font-size: 5rem;
+}
+
+.LandingText2{
+    font-size: 5rem;
+    background-color: red;
+    color:white;
+    font-weight: bold;
+}
+.LandingText3{
+    font-size: 1.5rem;
+
+    font-style: italic;
+}
+
+
 .ArticleList{
 
     display: grid;

@@ -15,7 +15,7 @@ import NoArticle from './components/NoArticle';
 function App() {
 
   return (
-    <>
+    <section className="pageWrapper">
       <NavBar />
       <Header />
 
@@ -30,7 +30,7 @@ function App() {
         <Route path="/*" element={<NoPath />}></Route> 
       </Routes>
       
-    </>
+    </section>
   )
 }
 
