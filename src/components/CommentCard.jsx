@@ -12,28 +12,12 @@ const CommentCard = ({comment,setComments})=>{
 
     const handleDelete=()=>{
         setDeleteClick(true);
-        console.log("I'll try to delete that")
-        console.log(comment)
-
-        // setComments((currentComments)=>{
-        //     const copyComments=[...currentComments];
-        //     const deleteIndex=copyComments.findIndex((element)=>{
-        //         return element.comment_id===comment.comment_id;
-        //     })
-
-        //     copyComments.splice(deleteIndex,1);
-
-        //     console.log(copyComments)
-        //     return copyComments;
-        // })
 
         deleteComment(comment.comment_id)
         .then((res)=>{
-            console.log("All good",res)
             setSuccessDelete(true);
         })
         .catch(error=>{
-            console.log("There was an error", error)
             setError(true)
         })
 
