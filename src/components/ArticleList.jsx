@@ -2,6 +2,7 @@ import ArticleCard from './ArticleCard'
 import {useEffect, useState} from 'react'
 import {getArticles} from '../apis/api'
 import { useNavigate,useSearchParams } from 'react-router-dom'
+import OrderSortComp from './OrderSortComp'
 
 const ArticleList = ()=>{
 
@@ -10,6 +11,8 @@ const ArticleList = ()=>{
     const [isLoading, setIsLoading] = useState(true);
     const [order, setOrder]=useState('desc');
     const [sortby, setSortby]=useState('created_at')
+
+    const [selectedOrder,setSelectedOrder] = useState('asc')
 
     const [searchParams, setSearchParams]=useSearchParams();
 
@@ -60,7 +63,28 @@ const ArticleList = ()=>{
                 setSearchParams({order:order,sort_by:'comment_count'})
 
                 }}>Comments</button>
-
+            <select 
+                value={order}
+                onChange={e=>{
+                    setOrder(e.target.value)
+                    setSearchParams({order:e.target.value,sort_by:sortby})
+                    
+                    }}>
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+             </select>
+            
+             <select 
+                value={order}
+                onChange={e=>{
+                    setSortby(e.target.value)
+                    setSearchParams({order:order,sort_by:e.target.value})
+                    
+                    }}>
+                    <option value="created_at">Date</option>
+                    <option value="votes">Votes</option>
+                    <option value="comments_count">comments</option>
+             </select>
 
 
         </ul>
