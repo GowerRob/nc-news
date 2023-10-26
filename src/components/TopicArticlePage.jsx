@@ -1,4 +1,4 @@
-// import {useLocation} from 'react-router-dom'
+
 import {getArticles} from '../apis/api'
 import {useEffect, useState} from 'react'
 import ArticleCard from './ArticleCard'
@@ -7,8 +7,6 @@ import { useNavigate, useParams,useSearchParams  } from "react-router-dom";
 const TopicArticlePage = ()=>{
     const {topic} = useParams() ;
 
-
-    const [articles,setArticles]=useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [filteredArticles,setFilteredArticles]=useState([]);
     const [searchParams, setSearchParams]=useSearchParams({order:'asc',sort_by:'votes'});
@@ -17,7 +15,6 @@ const TopicArticlePage = ()=>{
     useEffect(()=>{
         getArticles(searchParams)
         .then((articles)=>{
-            setArticles(articles)
             const filtered=articles.filter((article)=>{
               return article.topic===topic
             })

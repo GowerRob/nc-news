@@ -18,7 +18,6 @@ const ArticleInterface = ()=>{
             setIsLoading(false);
         })
         .catch((error)=>{
-            console.log("no good");
             navigate('/noarticle')
         })
 
@@ -28,7 +27,6 @@ const ArticleInterface = ()=>{
     const updateArticleLikes = (value)=>{
         updateArticleVotes(article_id,value).catch(()=>{
         })
-        
         
     }
 

@@ -7,8 +7,6 @@ const newsApi= axios.create({
 export const getArticles = (searchParams={order:'asc',sort_by:'created_at'}) => {
     const order=searchParams.get('order');
     const sort_by=searchParams.get('sort_by')
-    console.log("Got ", order," ", sort_by)
-
     return newsApi.get('/articles',{
         params:{order:order,sort_by:sort_by}
     })
