@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,500&family=Noto+Sans&display=swap");
+
 :root{
 
-    --clr-primary:#7806b1;
+    --clr-primary:#fddcc356;
     --clr-white: #ffffff;
-    --clr-background:#eceff1;
+    --clr-background:#fddcc356;;
     --clr-gray:#263238;
+    --clr-gray-light:#d7dfe2;
 }
 
 #root{
@@ -20,18 +23,59 @@
   padding:0;
 }
 
+html{
+    font-family: "Montserrat", sans-serif;
+}
+
+.pageWrapper{
+    height:100vh;
+    display:flex;
+    flex-direction: column;
+
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  font-size:3rem;
+  padding-top:0.4rem
+}
+
+
+
+
+
+
+/* Header */
 .pageHeader{
+    display:flex;
     background-color:var(--clr-background);
     padding-left:2rem;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: bold;
     color:var(--clr-gray);
-    padding-top:2rem
+    padding:1rem;
+    align-items: center;
+    list-style: none;
+    justify-content: end;
 }
+
+.avatar-small{
+    width:50px;
+    height:50px;
+    object-fit:cover;
+    object-position: 0 0;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
 
 .NavBar{
     background-color:var(--clr-primary);
-    color:var(--clr-white);
+    color:var(--clr-gray);
     display:flex;
     justify-content: flex-end;
     align-items: center;
@@ -46,16 +90,95 @@
 
 }
 
-.NavBar li:first-child{
+
+.Link{
+    color:var(--clr-gray);
+    text-decoration: none;
+
+}
+
+.NavBar .Link:first-child{
     margin-right: auto;
     padding-left: 2rem;
 }
 
-.Link{
-    color:var(--clr-white);
-    text-decoration: none;
+/* Landing Page */
+.landingMainContainer{
+    height:100vh;
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fddcc356;
 
 }
+
+.landingElementsContainer{
+    width:90%;
+    max-width:1000px;
+    margin: 0 auto;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.landingLeft{
+    width:50%;
+    height:600px;
+    background: url('./assets/landingImage.jpg') no-repeat center /cover;
+    border-radius:8px
+
+}
+
+.landingRight{
+    width:50%;
+    min-height: 400px;
+    background-color:#2f3d3c;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    padding:30px;
+    border-radius: 8px;
+    color:white;
+    /* The below overlap ALSO causes the elements to come in from the edges of container */
+    margin-left:-100px;
+}
+
+.Content{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.Content .large{
+    font-size: 3rem;
+}
+
+.Content .red{
+    background-color: rgb(218, 22, 22);
+    border-radius: 3px;
+    padding:10px
+}
+
+.Content .subtitle{
+    margin-top: 50px;
+}
+
+
+/* OrderSortComp */
+.OrderSortComp{
+    display:flex;
+    justify-content: flex-end;
+    gap: 10px;
+
+}
+
+
 .ArticleList{
 
     display: grid;
@@ -69,20 +192,20 @@
 
 .TopicList{
     display:grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     justify-content: center;
     gap:1rem;
     background-color: var(--clr-background);
     list-style: none;
     padding:1em;
-    border:1px solid black;
+  
 
 
 }
 
 .ArticleCard{
     background-color: var(--clr-white);
-    box-shadow: 0 0 10px 5px var(grey);
+    box-shadow: 0px 2px 20px var(--clr-gray-light);
     border-radius:0.5rem;
     padding:1em;
     border-top: 4px solid var(--clr-primary);
@@ -91,7 +214,7 @@
 
 .TopicCard{
     background-color: var(--clr-white);
-    box-shadow: 0 0 10px 5px var(grey);
+    box-shadow: 0px 2px 20px var(--clr-gray-light);
     border-radius:0.5rem;
     padding:1em;
     border-top: 4px solid var(--clr-primary);
@@ -117,68 +240,179 @@
 }
 
 
-.article_img_card{
-width:100%;
-height:60px;
-object-fit:cover;
+
+
+.topic_img_card{
+    width:100%;
+    height:80px;
+    object-fit:cover;
+    
+    }
+
+
+.card_title{
+    font-size:1rem;
+    margin-bottom:1.5rem;
+}
+
+
+/* Article/Comment Interface*/
+
+.ArticleCompContainer{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: center;
+}
+.ArticleInterface{
+    width:95%;
+    display:flex;
+    margin:1rem 1rem 2rem 1rem;
+    padding:1rem;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+
 
 }
+
+.articleContent{
+    display:grid;
+    grid-template-columns: 2fr;
+    margin-left:0.5rem;
+    grid-template-areas:
+                        "username-time votes"
+                        "topic topic"
+                        "title title"
+                        "textbody textbody"
+                        "voting voting"
+                        "delete delete";
+}
+
+.articleTopic{
+    grid-area:topic;
+    text-transform: uppercase;
+}
+
 .article_img{
     width:60px;
     height:60px;
     object-fit:cover;
     border-radius: 50%;
+}
+
+.article_img_card{
+    width:100%;
+    height:40px;
+    object-fit: cover;
 
 }
+
 .articleTitle{
     grid-area:title;
+    font-weight:bold ;
+
 }
 
-.articleAuthor{
-    grid-area: username-date;
+.articleAuthorTime{
+    grid-area: username-time
 }
-
-.articleTimeDate{
-    grid-area: username-date;
-    padding-left: 10rem;
+.articleVotes{
+    grid-area:votes;
 }
 
 .articleBody{
     padding-top:1rem;
     grid-area: textbody;
 }
-.card_title{
-    font-size:1rem;
-    margin-bottom:1.5rem;
-}
 
-.ArticleInterface{
+
+/* Comment card */
+
+.CommentsList{
     display:flex;
-    margin:1rem 1rem 2rem 1rem;
-    padding:1rem;
-
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    padding:10px;
+    gap: 8px;
 }
 
-.articleWrapper{
+.CommentCard{
+    box-shadow: 0px 2px 20px var(--clr-gray-light);
+    padding-bottom: 10px;
+}
+.commentAuthorTime{
+    font-weight: bold;
+}
+
+.articleContent{
     display:grid;
     grid-template-columns: 2fr;
     margin-left:0.5rem;
-    grid-template-areas: "title topic"
-                        "username-date username-date"
+    grid-template-areas:
+                        "username-time votes"
+                        "topic topic"
+                        "title title"
                         "textbody textbody"
                         "voting voting"
                         "delete delete";
 }
 
-.CommentCard{
-    margin:1rem;
-    border:2px solid red;
 
+.CommentCard ul{
+    list-style: none;
+    
 }
+
 
 #newComment{
     width:400px;
     height:50px;
+}
+
+
+.miniLoginFrame{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 1rem;
+}
+
+
+.loginFail{
+    display:flex;
+    flex-direction: column;
+    align-items:flex-end;
+    color:red;
+    }
+    
+    
+.ThumbHolder{
+    display:flex;
+   
+}
+.DownThumbButton{
+    width:50px;
+    border-radius: 0px 20px 20px 0px;
+}
+.UpThumbButton{
+    width:70px;
+    border-radius: 20px 0px 0px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+}
+.greyThumb{
+    font-size:2rem;
+    color: black;
+
+}
+
+.blueThumb{
+    font-size:2rem;
+    color: blue;
+
 }
 
 @media screen and (max-width:850px){

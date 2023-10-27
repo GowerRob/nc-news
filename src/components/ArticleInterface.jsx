@@ -3,13 +3,18 @@ import { useNavigate, useParams } from "react-router-dom";
 import {getArticleById, updateArticleVotes} from '../apis/api'
 import '../App.css'
 import Voter from './Voter'
-
+import LoadingBar from './LoadingBar';
+import secondsToTime from '../utils/secondsToTime'
 
 const ArticleInterface = ()=>{
     const {article_id} = useParams();
     const [isLoading, setIsLoading] = useState(true);
     const [article, setArticle]=useState({});
     const navigate=useNavigate();
+  
+
+    const timeElapsed=(secondsToTime((Date.now()-(new Date(article.created_at).getTime()))/1000));
+    const authorTime=`@${article.author}   - ${" ".repeat(3)}  ${timeElapsed}`
 
     useEffect(()=>{
         getArticleById(article_id)
@@ -20,8 +25,6 @@ const ArticleInterface = ()=>{
         .catch((error)=>{
             navigate('/noarticle')
         })
-
-
     },[])
 
     const updateArticleLikes = (value)=>{
@@ -31,19 +34,19 @@ const ArticleInterface = ()=>{
     }
 
 
-    if(isLoading){return <p>Loading, please wait</p>}
+    if(isLoading){return <LoadingBar/> }
     return (
         <section  className="ArticleInterface">
-            <img className="article_img" src="https://source.unsplash.com/a-woman-sitting-on-a-couch-using-a-laptop-computer-VCQw618ZorY"></img>
-            <section className="articleWrapper">
+            <div><img className="article_img" src="https://source.unsplash.com/a-woman-sitting-on-a-couch-using-a-laptop-computer-VCQw618ZorY"></img></div>
+            <section className="articleContent">
             <p className="articleTopic">{article.topic}</p>
-            <p className="articleAuthor">{article.author}</p>
-            <p className="articleTimeDate">{article.created_at}</p>
+            <p className="articleAuthorTime">{authorTime}</p>
+
             <p className="articleBody">{article.body}</p>
             <p className="articleTitle">{article.title}</p>
-            <Voter type={"Votes"} votes={article.votes} update={updateArticleLikes}/>
+            <Voter className="articleVotes" type={"Votes"} votes={article.votes} update={updateArticleLikes}/>
             
-            <button>Delete Article</button>
+            {/* <button>Delete Article</button> */}
             </section>
 
         </section>

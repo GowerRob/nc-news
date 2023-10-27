@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import {getCommentsById} from '../apis/api'
 import CommentCard from "./CommentCard";
 import NewComment from "./NewComment"
+import LoadingBar from './LoadingBar';
 
 const CommentInterface = ()=>{
     const {article_id} = useParams();
@@ -21,7 +22,7 @@ const CommentInterface = ()=>{
 
 
     
-    if (isLoading) return <p>Loading, please wait</p>
+    if (isLoading) return <LoadingBar/>
 
     return (
         <section>

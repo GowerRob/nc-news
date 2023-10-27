@@ -5,7 +5,7 @@ const NoTopic = ()=>{
 
     return (
         <article className="ArticleCard">
-            <h1>Sorry, that topic does not exist</h1>
+            <h1>Sorry, we have no articles on that topic</h1>
         </article>
     )
 

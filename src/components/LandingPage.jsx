@@ -4,9 +4,25 @@ import React from 'react'
 const LandingPage = ()=>{
 
     return (
-        <section>
-            <h1>You Landed</h1>  
-        </section>
+        <article className="landingMainContainer">
+            <section className="landingElementsContainer">
+                <section className="landingLeft">
+
+                </section>
+                <section className="landingRight">
+                    <section className="Content">
+                          <p className="large">No</p>
+                          <p className="large red">Politics</p>
+                          <p className="large">Please</p>
+                          <p className="subtitle">News for People who don't like News</p>
+                    </section>
+                  
+                </section>
+
+
+
+            </section>
+         </article>
     )
 
 
