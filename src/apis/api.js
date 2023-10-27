@@ -6,7 +6,7 @@ const newsApi= axios.create({
 
 export const getArticles = (searchParams={order:'asc',sort_by:'created_at'}) => {
     const order=searchParams.get('order');
-    const sort_by=searchParams.get('sort_by')
+    const sort_by=searchParams.get('sort_by');
     return newsApi.get('/articles',{
         params:{order:order,sort_by:sort_by, limit:50}
     })
@@ -34,6 +34,7 @@ export const updateArticleVotes = (article_id, votes)=>{
 }
 
 export const getCommentsById = (article_id)=>{
+
     return newsApi.get(`/articles/${article_id}/comments`)
     .then((res)=>{
         return res.data.comments;
