@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TopicCard from './TopicCard'
 import {getTopics} from '../apis/api'
-
+import LoadingBar from './LoadingBar';
 
 const TopicList = ()=>{
 
@@ -19,7 +19,7 @@ const [isLoading, setIsLoading] = useState(true);
 
     },[])
 
-    if (isLoading) return <p>Loading topics, please wait</p>
+    if (isLoading) return <LoadingBar />
 
 
     return (

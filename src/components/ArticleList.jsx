@@ -1,8 +1,9 @@
 import ArticleCard from './ArticleCard'
 import {useEffect, useState} from 'react'
 import {getArticles} from '../apis/api'
-import { useNavigate,useSearchParams } from 'react-router-dom'
+import {useSearchParams } from 'react-router-dom'
 import OrderSortComp from './OrderSortComp'
+import LoadingBar from './LoadingBar';
 
 const ArticleList = ()=>{
 
@@ -12,7 +13,6 @@ const ArticleList = ()=>{
     const [order, setOrder]=useState('desc');
     const [sortby, setSortby]=useState('created_at')
 
-    const [selectedOrder,setSelectedOrder] = useState('asc')
 
     const [searchParams, setSearchParams]=useSearchParams();
 
@@ -27,65 +27,12 @@ const ArticleList = ()=>{
 
 
 
-    if (isLoading) return <p>Loading articles, please wait</p>
+    if (isLoading) return <LoadingBar/>
 
     return (
         <>
         <ul>
-            <button onClick={()=>{
-                setOrder('asc')
-                setSearchParams({order:'asc',sort_by:sortby})
-                
-            }}>Asc</button>
-
-
-            <button onClick={()=>{
-                setOrder('desc')
-                setSearchParams({order:'desc',sort_by:sortby})
-
-                }}>Desc</button>
-
-            <button onClick={()=>{
-                setSortby('created_at')
-                setSearchParams({order:order, sort_by:'created_at'})
-
-                }}>Date</button>
-
-            <button onClick={()=>{
-                setSortby('votes')
-                setSearchParams({order:order,sort_by:'votes'})
-
-                }}>Votes</button>
-
-            <button onClick={()=>{
-                setSortby('comment_count')
-                setSearchParams({order:order,sort_by:'comment_count'})
-
-                }}>Comments</button>
-            <select 
-                value={order}
-                onChange={e=>{
-                    setOrder(e.target.value)
-                    setSearchParams({order:e.target.value,sort_by:sortby})
-                    
-                    }}>
-                    <option value="asc">Ascending</option>
-                    <option value="desc">Descending</option>
-             </select>
-            
-             <select 
-                value={order}
-                onChange={e=>{
-                    setSortby(e.target.value)
-                    setSearchParams({order:order,sort_by:e.target.value})
-                    
-                    }}>
-                    <option value="created_at">Date</option>
-                    <option value="votes">Votes</option>
-                    <option value="comments_count">comments</option>
-             </select>
-
-
+            <OrderSortComp order={order} sortby={sortby} setOrder={setOrder} setSortby={setSortby} setSearchParams={setSearchParams}/>
         </ul>
         <ul className="ArticleList">       
             {articles.map((article)=>{

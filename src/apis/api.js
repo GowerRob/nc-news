@@ -8,7 +8,7 @@ export const getArticles = (searchParams={order:'asc',sort_by:'created_at'}) => 
     const order=searchParams.get('order');
     const sort_by=searchParams.get('sort_by')
     return newsApi.get('/articles',{
-        params:{order:order,sort_by:sort_by}
+        params:{order:order,sort_by:sort_by, limit:50}
     })
     .then((res)=>{
         return res.data.articles;
@@ -60,4 +60,20 @@ export const deleteComment = (comment_id)=>{
         return res.data.topics
     })
 
+}
+
+export const getUsers =()=>{
+    return newsApi.get(`/users`)
+    .then((res)=>{
+        return res.data.users
+    })
+
+}
+
+export const updateCommentVotes = (comment_id, votes)=>{
+    
+    return newsApi.patch(`/comments/${comment_id}`,
+    {"inc_votes":votes}).then((res)=>{
+        return res
+    })
 }

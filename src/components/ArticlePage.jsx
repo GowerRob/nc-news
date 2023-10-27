@@ -6,11 +6,11 @@ import CommentInterface from "./CommentInterface";
 const ArticlePage = ()=>{
 
     return (
-        <div>
+        <section className="ArticleCompContainer">
             <ArticleInterface />
             <CommentInterface />
                         
-        </div>
+        </section>
     )
 
 

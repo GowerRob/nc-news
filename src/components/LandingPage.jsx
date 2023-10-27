@@ -4,17 +4,25 @@ import React from 'react'
 const LandingPage = ()=>{
 
     return (
-        <section className="LandingWrapper">
-            <section className="LandingWords">
-                <p className="LandingText1">No</p>
-                <p className="LandingText2">Politics</p>
-                <p className="LandingText1">Please</p>
-                <p className="LandingText3">News for People that don't like News</p>
-            </section>
-            <img src="https://source.unsplash.com/a-couple-of-men-standing-in-front-of-a-colorful-wall-zOujeVZga7E
-            "></img>
+        <article className="landingMainContainer">
+            <section className="landingElementsContainer">
+                <section className="landingLeft">
 
-         </section>
+                </section>
+                <section className="landingRight">
+                    <section className="Content">
+                          <p className="large">No</p>
+                          <p className="large red">Politics</p>
+                          <p className="large">Please</p>
+                          <p className="subtitle">News for People who don't like News</p>
+                    </section>
+                  
+                </section>
+
+
+
+            </section>
+         </article>
     )
 
 
