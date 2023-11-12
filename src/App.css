@@ -295,10 +295,12 @@ html{
 }
 
 .article_img{
-    width:60px;
-    height:60px;
+    width:70px;
+    height:70px;
     object-fit:cover;
+    object-position: 0 0;
     border-radius: 50%;
+    border: 2px solid black;
 }
 
 .article_img_card{
@@ -341,9 +343,19 @@ html{
 .CommentCard{
     box-shadow: 0px 2px 20px var(--clr-gray-light);
     padding-bottom: 10px;
+    display:flex;
 }
 .commentAuthorTime{
     font-weight: bold;
+}
+
+.CommentAvatar{
+    width:50px;
+    height:50px;
+    object-fit:cover;
+    object-position: 0 0;
+    border-radius: 50%;
+    border: 1px solid black;
 }
 
 .articleContent{

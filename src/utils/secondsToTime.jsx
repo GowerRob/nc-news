@@ -1,7 +1,6 @@
 const secondsToTime=(seconds)=>{
     let returnTime=''
-    console.log(seconds)
-    
+
     if(seconds<60){
         returnTime=`${Math.round(seconds)} seconds ago`
     }else
@@ -20,7 +19,6 @@ const secondsToTime=(seconds)=>{
         returnTime= `${Math.round(seconds/2592000)} months ago`
     }else
     {
-        console.log("here")
         returnTime= `${Math.round(seconds/31536000)} years ago`
     }
 
