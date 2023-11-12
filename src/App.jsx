@@ -11,7 +11,7 @@ import LoginPage from './components/LoginPage';
 import NoTopic from './components/NoTopic';
 import NoPath from './components/NoPath';
 import NoArticle from './components/NoArticle';
-import './App.css'
+// import './App.css'
 function App() {
 
   return (

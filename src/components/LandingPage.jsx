@@ -14,7 +14,7 @@ const LandingPage = ()=>{
                           <p className="large">No</p>
                           <p className="large red">Politics</p>
                           <p className="large">Please</p>
-                          <p className="subtitle">News for People who don't like News</p>
+                          <p className="text-yellow-600 subtitle">News for People who don't like News</p>
                     </section>
                   
                 </section>
