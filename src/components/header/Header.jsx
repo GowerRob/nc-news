@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
-import { UserContext } from "../contexts/UserContext";
-import { getUsers } from "../apis/api";
+import { UserContext } from "../../contexts/UserContext";
+import { getUsers } from "../../apis/api";
 
 const Header = ()=>{
 
     const[loginId, setLoginId]=useState('')
     const[loginFail, setLoginFail]=useState(false)
+    const[search, setSearch]=useState('')
 
     const {user,setUser}=useContext(UserContext);
     const defaultURL='https://source.unsplash.com/a-long-hallway-with-green-and-white-walls-YpaTkZ9hvj4'
