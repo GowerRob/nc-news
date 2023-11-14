@@ -4,6 +4,25 @@ const newsApi= axios.create({
     baseURL:'https://newsservicerg.onrender.com/api'
 });
 
+
+export const postUser=(user)=>{
+
+    return newsApi.post(`/users`,user)
+    .then((res)=>{
+        return res
+    })
+
+}
+
+
+export const postArticle =(article)=>{
+    return newsApi.post(`/articles`,article)
+    .then((res)=>{
+        console.log(res)
+    })
+
+}
+
 export const getArticles = (searchParams={order:'asc',sort_by:'created_at'}) => {
     const order=searchParams.get('order');
     const sort_by=searchParams.get('sort_by');

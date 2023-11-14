@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import {getArticleById, updateArticleVotes} from '../apis/api'
 import '../App.css'
 import Voter from './Voter'
-import LoadingBar from './LoadingBar';
+import LoadingBar from '../components/loading/LoadingBar';
 import secondsToTime from '../utils/secondsToTime'
 
 const imgObj={

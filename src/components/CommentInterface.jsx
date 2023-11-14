@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import {getCommentsById} from '../apis/api'
 import CommentCard from "./CommentCard";
 import NewComment from "./NewComment"
-import LoadingBar from './LoadingBar';
+import LoadingBar from '../components/loading/LoadingBar';
 import OrderSordCompComments from './OrderSortCompComments'
 import {useSearchParams } from 'react-router-dom'
 

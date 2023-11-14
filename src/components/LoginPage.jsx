@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { getUsers } from "../apis/api";
 import UserCard from "./UserCard";
-import LoadingBar from "./LoadingBar";
+import LoadingBar from '../components/loading/LoadingBar';
 
 const LoginPage= ()=>{
     const {user,setUser}=useContext(UserContext);
