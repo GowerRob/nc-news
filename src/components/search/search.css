@@ -1,3 +1,13 @@
+.npp__article-list-container{
+    display:flex;
+    flex:row;
+    margin:10px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+
+
 .gpt3__features{
     width:100%;
     display:flex;

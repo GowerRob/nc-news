@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TopicCard from './TopicCard'
 import {getTopics} from '../apis/api'
-import LoadingBar from './LoadingBar';
+import LoadingBar from '../components/loading/LoadingBar'
 
 const TopicList = ()=>{
 

@@ -25,7 +25,7 @@ function App() {
     <div className='App'>
     <div className='gradient__bg'>
       <NavBar />
-      <Header />
+      {/* <Header /> */}
     </div>
 
       <Routes>

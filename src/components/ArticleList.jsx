@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react'
 import {getArticles} from '../apis/api'
 import {useSearchParams } from 'react-router-dom'
 import OrderSortComp from './OrderSortComp'
-import LoadingBar from './LoadingBar';
+import LoadingBar from '../components/loading/LoadingBar';
 import AddArticleModal from './AddArticleModal'
 
 

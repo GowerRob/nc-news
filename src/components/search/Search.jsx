@@ -4,7 +4,7 @@ import { SearchContext } from '../../contexts/SearchContext';
  import './search.css'
 import {getArticles} from "../../apis/api";
 import ArticleCard from '../cards/article/ArticleCard';
-
+import LoadingBar from '../loading/LoadingBar'
 
 const Search = () => {
     const {search}=useContext(SearchContext);
@@ -21,12 +21,10 @@ const Search = () => {
           const pattern=new RegExp(search,"i");
           console.log(pattern)
           res.forEach((article)=>{
-              console.log(article)
               if(pattern.test(article.title)){
                 foundArticles.push(article)
               }
           })
-          console.log(foundArticles);
           setArticles(foundArticles);
           setIsLoading(false);
         })
@@ -36,8 +34,9 @@ const Search = () => {
 
   return (
     <div >
+        {isLoading&&<LoadingBar/>}
         {!isLoading&&
-        <div className='gpt3__features-container'>
+        <div className='npp__article-list-container'>
             {articles.map((article)=>{ 
             return <ArticleCard article={article} key={article.article_id}/>})
             }
