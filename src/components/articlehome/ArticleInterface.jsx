@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
-import {getArticleById, updateArticleVotes} from '../apis/api'
-import '../App.css'
-import Voter from './Voter'
-import LoadingBar from '../components/loading/LoadingBar';
-import secondsToTime from '../utils/secondsToTime'
+import {getArticleById, updateArticleVotes} from '../../apis/api'
+import './articlehome.css'
+import Voter from '../Voter'
+import LoadingBar from '../loading/LoadingBar';
+import secondsToTime from '../../utils/secondsToTime'
 
 const imgObj={
     tickle122:"https://vignette.wikia.nocookie.net/mrmen/images/d/d6/Mr-Tickle-9a.png/revision/latest?cb=20180127221953",
@@ -49,14 +49,14 @@ const ArticleInterface = ()=>{
         <section  className="ArticleInterface">
             <div><img className="article_img" src={imgObj[article.author]}></img></div>
             <section className="articleContent">
-            <p className="articleTopic">{article.topic}</p>
-            <p className="articleAuthorTime">{authorTime}</p>
+                <p className="articleTopic">{article.topic}</p>
+                <p className="articleAuthorTime">{authorTime}</p>
 
-            <p className="articleBody">{article.body}</p>
-            <p className="articleTitle">{article.title}</p>
-            <Voter className="articleVotes" type={"Votes"} votes={article.votes} update={updateArticleLikes}/>
-            
-            {/* <button>Delete Article</button> */}
+                <p className="articleBody">{article.body}</p>
+                <p className="articleTitle">{article.title}</p>
+                <Voter className="articleVotes" type={"Votes"} votes={article.votes} update={updateArticleLikes}/>
+                
+                {/* <button>Delete Article</button> */}
             </section>
 
         </section>

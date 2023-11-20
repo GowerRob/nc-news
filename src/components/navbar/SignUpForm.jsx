@@ -54,8 +54,8 @@ const handleFailLogin=()=>{
 
     return (
         <>
-            <form className="npp__navbar-signin">
-                <label htmlFor="usernameInput">
+            <form className="npp__navbar-signup">
+                <label htmlFor="usernameInput" className='navLabel'>
                     Enter username: 
                     <input 
                     id="usernameInput"
@@ -64,7 +64,7 @@ const handleFailLogin=()=>{
                     onChange={e=>setentereredUsername(e.target.value)} >
                     </input>
                 </label>
-                <label htmlFor="nameInput">
+                <label htmlFor="nameInput"className='navLabel'>
                     Enter name: 
                     <input 
                     id="nameInput"
@@ -73,7 +73,7 @@ const handleFailLogin=()=>{
                     onChange={e=>setEntereredName(e.target.value)} >
                     </input>
                 </label>
-                <label htmlFor="avatarInput">
+                <label htmlFor="avatarInput" className='navLabel'>
                     Enter Avatar URL: 
                     <input 
                     id="avatarInput"

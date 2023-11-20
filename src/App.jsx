@@ -1,10 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/header/Header';
 import Header2 from './components/header/Header2';
-//import NavBar from './components/NavBar';
-import ArticleList from './components/ArticleList';
-import LandingPage from './components/LandingPage';
-import ArticlePage from './components/ArticlePage'
+import ArticleList from './components/articles/ArticleList';
+import ArticlePage from './components/articlehome/ArticlePage'
 import TopicList from './components/TopicList';
 import TopicArticlePage from './components/TopicArticlePage';
 import LoginPage from './components/LoginPage';

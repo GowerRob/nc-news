@@ -1,10 +1,10 @@
 import dateFormat, { masks } from "dateformat";
 import { useContext, useState } from "react";
-import { UserContext } from "../contexts/UserContext";
-import { deleteComment ,updateCommentVotes} from "../apis/api";
-import secondsToTime from '../utils/secondsToTime'
-import Voter from './Voter'
-
+import { UserContext } from "../../contexts/UserContext";
+import { deleteComment ,updateCommentVotes} from "../../apis/api";
+import secondsToTime from '../../utils/secondsToTime'
+import Voter from '../Voter'
+import './articlehome.css'
 
 const CommentCard = ({comment,setComments})=>{
     const {user}=useContext(UserContext);
@@ -47,21 +47,21 @@ return(
     <article className="CommentCard">
       <div><img className="CommentAvatar" src={imgObj[comment.author]}></img></div>
       <div>
-               {(!successDelete&&!deleteClick&&!error)?        
-       <article className="commentContent">
-            <p className="commentAuthorTime">{authorTime}</p>
-            <p>{comment.body}</p>
-            <Voter type={"Votes"} votes={comment.votes} update={updateCommentLikes}/>
-            
-            
-            {user&&
-                (user.username===comment.author)?<button disabled={deleteClick}  onClick={handleDelete}>Delete Comment</button>:null}
-        </article>:
-        (successDelete&&deleteClick&&!error)?
-        <p>Comment Deleted</p>:
-        (!successDelete&&deleteClick&&!error)?
-        <p>Delete Pending</p>:
-        <p>Delete Unsucessful</p>}
+                {(!successDelete&&!deleteClick&&!error)?        
+        <article className="commentContent">
+                <p className="commentAuthorTime">{authorTime}</p>
+                <p className="commentBody">{comment.body}</p>
+                <Voter type={"Votes"} votes={comment.votes} update={updateCommentLikes}/>
+                
+                
+                {user&&
+                    (user.username===comment.author)?<button disabled={deleteClick}  onClick={handleDelete}>Delete Comment</button>:null}
+            </article>:
+            (successDelete&&deleteClick&&!error)?
+            <p>Comment Deleted</p>:
+            (!successDelete&&deleteClick&&!error)?
+            <p>Delete Pending</p>:
+            <p>Delete Unsucessful</p>}
      </div>  
 
        

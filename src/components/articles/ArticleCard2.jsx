@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import React from 'react'
 import moment from 'moment';
+import './articles2.css';
+import { useNavigate } from "react-router-dom";
 
 const ArticleCard = ({article})=>{
-  
+    const navigate = useNavigate();
    
     const imgObj={
         coding:"https://source.unsplash.com/monitor-showing-java-programming-OqtafYT5kTw",
@@ -19,17 +21,19 @@ const ArticleCard = ({article})=>{
 
 
     return (
-        <article className="ArticleCard">
-            <p className="card_topic">{article.topic}</p>
-            <img className="article_img_card" src={imgUrl}></img>
-            <div className="card_body">
-                <h2 className="card_title">{article.title}</h2>
-                <p className="card_date">{moment(article.created_at, moment.ISO_8601).format('LLLL')}</p>
-                <p className="card_comments">{article.comment_count}</p>
-                <p className="card_votes">{article.votes}</p>
-                 <Link to={`/articles/${article.article_id}`}> Go to article</Link>  
-            </div>   
-        </article>
+        <div onClick={()=>{navigate(`/articles/${article.article_id}`)}}>
+            <article className='npp__article-container-content'>
+                <p className="card_topic">{article.topic}</p>
+                <img className="article_img_card" src={imgUrl}></img>
+                <div className="card_body">
+                    <h2 className="card_title">{article.title}</h2>
+                    <p className="card_date">{moment(article.created_at, moment.ISO_8601).format('LLLL')}</p>
+                    <p className="card_comments">{article.comment_count}</p>
+                    <p className="card_votes">{article.votes}</p>
+                     
+                </div>   
+            </article>
+        </div>
     )
 
 

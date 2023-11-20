@@ -1,6 +1,7 @@
 
 .LoadingContainer{
 display: flex;
+flex-direction: column;
 justify-content: center;
 align-items: center;
 width:100vw;
@@ -14,6 +15,11 @@ height:100vh;
     display: inline-block;
     margin : 0.8rem;
     animation: scaling 2.5s ease-in-out infinite;
+}
+
+.waitText{
+    color:#fff;
+
 }
 
 @keyframes scaling{
