@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
-import {getCommentsById} from '../apis/api'
+import {getCommentsById} from '../../apis/api'
 import CommentCard from "./CommentCard";
-import NewComment from "./NewComment"
-import LoadingBar from '../components/loading/LoadingBar';
-import OrderSordCompComments from './OrderSortCompComments'
+import NewComment from "../NewComment"
+import LoadingBar from '../loading/LoadingBar';
+import OrderSordCompComments from '../OrderSortCompComments'
 import {useSearchParams } from 'react-router-dom'
 
 const CommentInterface = ()=>{
@@ -33,7 +33,6 @@ const CommentInterface = ()=>{
 
     return (
         <section>
-            <h1>Comments</h1>
             <NewComment setComments={setComments}/>
             <OrderSordCompComments order={order} sortby={sortby} setOrder={setOrder} setSortby={setSortby} />
             { <ul className="CommentsList">

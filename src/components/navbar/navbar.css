@@ -1,3 +1,18 @@
+.npp__navbar-signin{
+display:flex;
+flex-direction: column;
+;
+
+}
+
+
+.npp__navbar-signup{
+    display:flex;
+    flex-direction: column;
+    
+    }
+    
+
 .npp__navbar{
     display:flex;
     justify-content: space-between;
@@ -139,14 +154,20 @@
     border-radius: 3px;
     max-width: 600px;
     min-width: 300px;
+    height:250px;
     color:black;
     background: white;
-    height:80px;
     justify-content: center;
     align-items: center;
 }
 
-.
+.navLabel{
+    padding-bottom: 1rem;
+}
+input{
+    width:100%;
+}
+
 
 @media screen and (max-width: 1050px){
     .npp__navbar-links_container{

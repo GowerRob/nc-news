@@ -12,17 +12,21 @@ const SignInForm = ({closeSignIn}) => {
 
     const handleLogin=(e)=>{
         e.preventDefault();
+        console.log("222")
         getUsers()
         .then((res)=>{
-            
+            console.log("333")
             const found=res.find(userItem=>userItem['username']===login);
             if(found){
                 setUser(found)
                 setLoggedIn(true)
+                console.log("444")
+                closeSignIn();
             }else{
                 setUser(null)
                 setLoggedIn(false)
                 setFailedLogin(true)
+                console.log("555")
             }
         })
     }
@@ -47,8 +51,8 @@ const handleFailLogin=()=>{
 
     return (
         <>
-            <form className="npp__navbar-signin">
-                <label>
+            <form className="npp__navbar-signin" onSubmit={handleLogin}>
+                <label className='navLabel'>
                     Enter username: 
                     <input 
                     id="userNameInput"
@@ -56,10 +60,9 @@ const handleFailLogin=()=>{
                     value={login}
                     onChange={e=>setLogin(e.target.value)} >
                     </input>
-                
-
                 </label>
-                <button onClick={handleLogin}>Login</button>
+
+                <button type='submit'>Login</button>
                 <button onClick={closeSignIn}>Cancel</button>
                 {failedLogin&&<p>Failed to login in</p>}
             </form>

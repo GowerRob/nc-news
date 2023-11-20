@@ -7,7 +7,6 @@ import moment from 'moment';
 
 const ArticleCard = ({ article }) => {
   const navigate = useNavigate();
-  console.log(article)
 return(
   <div onClick={()=>{navigate(`/articles/${article.article_id}`)}}>
   <div className='npp__article-container'>

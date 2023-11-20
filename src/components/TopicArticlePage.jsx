@@ -1,7 +1,7 @@
 
 import {getArticles} from '../apis/api'
 import {useEffect, useState} from 'react'
-import ArticleCard from './ArticleCard'
+import ArticleCard from './articles/ArticleCard2'
 import { useNavigate, useParams,useSearchParams  } from "react-router-dom";
 import OrderSortComp from './OrderSortComp'
 

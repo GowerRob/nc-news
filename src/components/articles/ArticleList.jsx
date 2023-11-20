@@ -1,11 +1,12 @@
-import ArticleCard from './ArticleCard'
+import ArticleCard2 from './ArticleCard2'
 import {useEffect, useState} from 'react'
-import {getArticles} from '../apis/api'
+import {getArticles} from '../../apis/api'
 import {useSearchParams } from 'react-router-dom'
-import OrderSortComp from './OrderSortComp'
-import LoadingBar from '../components/loading/LoadingBar';
-import AddArticleModal from './AddArticleModal'
+import OrderSortComp from '../OrderSortComp'
+import LoadingBar from '../loading/LoadingBar';
 
+import NewArticle from './NewArticle'
+import './articles2.css';
 
 const ArticleList = ()=>{
 
@@ -14,9 +15,26 @@ const ArticleList = ()=>{
     const [isLoading, setIsLoading] = useState(true);
     const [order, setOrder]=useState('desc');
     const [sortby, setSortby]=useState('created_at')
-    const [modal, setModal]=useState(false);
+    const [articleModal, setArticleModal]=useState(false);
 
     const [searchParams, setSearchParams]=useSearchParams();
+
+
+    const PopUpModal = ({visible, children, toggleModal}) => {
+        return (<>
+                {visible && <>
+                <div className='overlay'
+                onClick={toggleModal}></div>
+                <div className="modal-content-newArt">{children} </div>   
+                </>}
+                </>
+            
+        );
+    };
+    
+
+
+
 
 
     useEffect(()=>{
@@ -28,7 +46,7 @@ const ArticleList = ()=>{
     },[order, sortby,searchParams])
 
     const toggleModal=()=>{
-        setModal(!modal)
+        setArticleModal(!articleModal)
     }
 
 
@@ -38,21 +56,26 @@ const ArticleList = ()=>{
         <>
         <button
         onClick={toggleModal}>Add Article</button>
+
+        <PopUpModal visible={articleModal} toggleModal={toggleModal} >
+                <NewArticle toggleModal={toggleModal}/>
+        </PopUpModal>
+
+
         <ul>
             <OrderSortComp order={order} sortby={sortby} setOrder={setOrder} setSortby={setSortby} setSearchParams={setSearchParams}/>
         </ul>
-        <ul className="ArticleList">       
+        <div className='npp__article-list-container'>     
             {articles.map((article)=>{
                 return(
-                   <li key={article.article_id}>
-                        <ArticleCard article={article}/>
-                   </li>
+                   <div key={article.article_id}>
+                        <ArticleCard2 article={article}/>
+                   </div>
                 )
             })}
             
-        </ul>
-        {/* <AddArticleModal visible={modal} toggleModal={toggleModal}/> */}
-
+            </div>
+        
 
         </>
     )

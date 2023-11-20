@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import {RiMenu3Line, RiCloseLine} from 'react-icons/ri'
 //import logo from '../../assets/logo.svg'
 import './navbar.css'
@@ -10,6 +10,7 @@ const Menu = () =>(
   <>
     <p><Link to={`/`} className="Link">Home</Link></p>
     <p><Link to={`/articles`} className="Link">Articles</Link></p>
+    <p><Link to={`/search`} className="Link">Search</Link></p>
     <p><Link to={`/topics`} className="Link">Topics</Link></p>
     <p><Link to={`/login`} className="Link">Users</Link></p>
     <p><Link to={`/login`} className="Link">About</Link></p>
@@ -42,7 +43,7 @@ const Navbar = () => {
   const openSignIn=()=>{
     setSignInVisible(true)};
 
-  const closeSignIn=()=>(setSignInVisible(false));
+  const closeSignIn=()=>{console.log("SignClose");setSignInVisible(false);};
   
   const openSignUp=()=>{
     setSignUpVisible(true)};
