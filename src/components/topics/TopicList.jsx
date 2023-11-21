@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TopicCard from './TopicCard'
-import {getTopics} from '../apis/api'
-import LoadingBar from '../components/loading/LoadingBar'
+import {getTopics} from '../../apis/api'
+import LoadingBar from '../loading/LoadingBar'
 
 const TopicList = ()=>{
 
@@ -24,7 +24,6 @@ const [isLoading, setIsLoading] = useState(true);
 
     return (
         <>
-            <h1>Topics</h1>
             <ul className="TopicList">
                 {topics.map((topic)=>{
                     return(

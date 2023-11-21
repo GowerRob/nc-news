@@ -1,9 +1,9 @@
 
-import {getArticles} from '../apis/api'
+import {getArticles} from '../../apis/api'
 import {useEffect, useState} from 'react'
-import ArticleCard from './articles/ArticleCard2'
+import ArticleCard from '../articles/ArticleCard2'
 import { useNavigate, useParams,useSearchParams  } from "react-router-dom";
-import OrderSortComp from './OrderSortComp'
+import OrderSortComp from '../OrderSortComp'
 
 const TopicArticlePage = ()=>{
     const {topic} = useParams() ;

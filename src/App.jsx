@@ -2,9 +2,9 @@ import { Routes, Route } from 'react-router-dom';
 import Header2 from './components/header/Header2';
 import ArticleList from './components/articles/ArticleList';
 import ArticlePage from './components/articlehome/ArticlePage'
-import TopicList from './components/TopicList';
-import TopicArticlePage from './components/TopicArticlePage';
-import LoginPage from './components/LoginPage';
+import TopicList from './components/topics/TopicList';
+import TopicArticlePage from './components/topics/TopicArticlePage';
+import LoginPage from './components/loginuser/LoginPage';
 import NoTopic from './components/NoTopic';
 import NoPath from './components/NoPath';
 import NoArticle from './components/NoArticle';
