@@ -254,6 +254,18 @@ html{
     padding:1em;
 }
 
+.TopicList{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    gap:1rem;
+    background-color: var(--clr-background);
+    list-style: none;
+    padding:1em;
+  
+
+
+}
 
 .ArticleCard{
     background-color: var(--clr-white);
@@ -264,6 +276,15 @@ html{
 
 }
 
+.TopicCardA{
+    background:var(--color-footer);
+    box-shadow: 0px 2px 20px var(--clr-gray-light);
+    border-radius:0.5rem;
+    padding:1em;
+    cursor: pointer;
+
+
+}
 
 .card_date{
     
@@ -284,7 +305,13 @@ html{
 }
 
 
+.topic_slugA{
 
+    color:white;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+  
+}
 
 .topic_img_card{
     width:100%;
@@ -293,6 +320,10 @@ html{
     
     }
 
+.topic_description{
+
+    color:white;
+}    
 
 .card_title{
     font-size:1rem;

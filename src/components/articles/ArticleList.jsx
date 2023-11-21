@@ -54,17 +54,22 @@ const ArticleList = ()=>{
 
     return (
         <>
-        <button
-        onClick={toggleModal}>Add Article</button>
-
         <PopUpModal visible={articleModal} toggleModal={toggleModal} >
                 <NewArticle toggleModal={toggleModal}/>
         </PopUpModal>
+        <div className="topRowContainer">
+                <button
+                onClick={toggleModal}
+                className='AddArticleButton'>Add Article</button>
+
+                <ul>
+                    <OrderSortComp order={order} sortby={sortby} setOrder={setOrder} setSortby={setSortby} setSearchParams={setSearchParams}/>
+                </ul>
+
+        </div>
 
 
-        <ul>
-            <OrderSortComp order={order} sortby={sortby} setOrder={setOrder} setSortby={setSortby} setSearchParams={setSearchParams}/>
-        </ul>
+
         <div className='npp__article-list-container'>     
             {articles.map((article)=>{
                 return(

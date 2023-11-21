@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import React from 'react'
+import './topics.css'
+import { useNavigate } from "react-router-dom";
 
 
 const TopicCard = ({topic}) => {
-
+    const navigate = useNavigate();
 const slug=topic.slug;
 
 const imgObj={
@@ -17,13 +19,15 @@ const imgObj={
 const imgUrl=(imgObj[slug]===undefined)?'this':imgObj[slug];
 
 return (
-    <article className="TopicCard">
-        <h1 className="topic_slug">{topic.slug}</h1>
+    <div onClick={()=>{navigate(`/articles/topics/${slug}`)}}>
+    <article className="TopicCardA">
+        <h1 className="topic_slugA">{topic.slug}</h1>
         <img className="topic_img_card" src={imgUrl}></img>
         <p className="topic_description">{topic.description}</p>
         {/* <Link to={`/articles/topics/${slug}`} state={{from:slug}}> Go to articles</Link> */}
-        <Link to={`/articles/topics/${slug}`}> Go to articles</Link>
+      {/* <Link to={`/articles/topics/${slug}`}> Go to articles</Link> */}
     </article>
+    </div>
 )
 
 }

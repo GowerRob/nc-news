@@ -1,5 +1,80 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,500&family=Noto+Sans&display=swap"); */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+.introText{
+    color:var(--color-text);
+    margin: 2rem 0;
+}
+
+.DisplayUsers, .LoginButton{
+    padding: 0.5rem 1rem;
+    color:#fff;
+    background:#FF4820;
+    font-family: var(--font-family);
+    font-weight:500;
+    border-radius: 5px;
+    border:none;
+    outline:none;
+    cursor: pointer;
+    width:50%;
+    align-self: center;
+
+}
+.alertText{
+    color:white;
+}
+.LoginButton{
+    margin-top: 1rem;
+}
+
+.LoginForm{
+    margin-top: 2rem;
+}
+
+.userPrompt{
+    color:white;
+    padding-top:1rem;
+
+}
+.login_container{
+    display:flex;
+}
+
+.pageContainer{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.leftSection{
+    display:flex;
+    flex-direction: column;
+
+}
+.rightSection{
+    display:flex;
+
+}
+
+.imageRight{
+    width:100%
+
+}
+
+.UserList{
+
+    color:white;
+}
+
+.testText{
+    color:white;
+}
+
+.right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
 *{
     box-sizing: border-box;
     padding:0;
