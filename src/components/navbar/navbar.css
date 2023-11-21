@@ -5,6 +5,36 @@ flex-direction: column;
 
 }
 
+.signInButtons{
+    padding: 0.5rem 1rem;
+    color:#fff;
+    background:#FF4820;
+    font-family: var(--font-family);
+    font-weight:500;
+    border-radius: 5px;
+    border:none;
+    outline:none;
+    cursor: pointer;
+    width:60%;
+    align-self: center;
+    margin-bottom:0.25rem;
+
+}
+
+.cancelButtons{
+    padding: 0.5rem 1rem;
+    color:#fff;
+    background:rgba(10, 51, 231, 0.678);
+    font-family: var(--font-family);
+    font-weight:500;
+    border-radius: 5px;
+    border:none;
+    outline:none;
+    cursor: pointer;
+    width:60%;
+    align-self: center;
+
+}
 
 .npp__navbar-signup{
     display:flex;
@@ -68,7 +98,7 @@ flex-direction: column;
     
     margin: 0 1rem;
     cursor:pointer;
-    z-index: 100;
+    
 
 }
 
@@ -103,16 +133,17 @@ flex-direction: column;
     flex-direction: column;
 
     text-align:end;
+    padding-right: 1rem;
     background: var(--color-footer);
-    padding: 2rem;
+    /* padding: 2rem; */
     position: absolute;
     top:40px;
     right:0;
     margin-top:1rem;
-    min-width: 210px;
+    min-width: 110px;
     border-radius: 5px;
-    box-shadow: 0 0 5 rgba(0,0,0,0.2)
-
+    box-shadow: 0 0 5 rgba(0,0,0,0.2);
+    z-index: 100;
 }
 
 .npp__navbar-menu_container p{
@@ -157,12 +188,14 @@ flex-direction: column;
     border-radius: 3px;
     max-width: 600px;
     min-width: 300px;
-    height:250px;
+    height:300px;
     color:black;
     background: white;
     justify-content: center;
     align-items: center;
 }
+
+
 
 .navLabel{
     padding-bottom: 1rem;

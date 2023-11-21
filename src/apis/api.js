@@ -23,6 +23,14 @@ export const postArticle =(article)=>{
 
 }
 
+export const postTopic =(topic)=>{
+    return newsApi.post(`/topics`,topic)
+    .then((res)=>{
+        console.log(res)
+    })
+
+}
+
 export const getArticles = (searchParams={order:'asc',sort_by:'created_at'}) => {
     const order=searchParams.get('order');
     const sort_by=searchParams.get('sort_by');

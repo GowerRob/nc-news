@@ -76,15 +76,13 @@ const NewArticle= ({toggleModal}) => {
 
 
 
-
-
     return (
         <>  {!loggedIn&&
-        <>
-        <p>Please sign in to post an article</p>
-        
-        <button onClick={toggleModal}>Cancel</button>
-        </>
+                <div className="notLoggedIn">
+                <p>Please sign in to post an article</p>
+                
+                <button onClick={toggleModal}>Close</button>
+                </div>
         }
             {loggedIn&&
             <div>
@@ -96,6 +94,7 @@ const NewArticle= ({toggleModal}) => {
                     Enter Article Title: 
 
                 </label>
+                
                     <input 
                     id="articleTitle"
                     type="text"
@@ -127,8 +126,8 @@ const NewArticle= ({toggleModal}) => {
 
 
 
-                <button type='submit'>Submit</button>
-                <button onClick={toggleModal}>Cancel</button>
+                <button type='submit' className="signInButtons">Submit</button>
+                <button onClick={toggleModal} className="cancelButtons">Cancel</button>
                 {failedPost&&<p>Failed to Post Article, please check all fields are correctly filled in</p>}
                 {successfulPost&&<p>Article Posted successfully</p>}
             </form>

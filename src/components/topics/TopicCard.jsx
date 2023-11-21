@@ -16,7 +16,7 @@ const imgObj={
     default:"https://source.unsplash.com/a-cup-of-coffee-and-a-pair-of-glasses-on-a-newspaper-Wh9ZC4727e4"
 }
 
-const imgUrl=(imgObj[slug]===undefined)?'this':imgObj[slug];
+const imgUrl=(imgObj[slug]===undefined)?imgObj.default:imgObj[slug];
 
 return (
     <div onClick={()=>{navigate(`/articles/topics/${slug}`)}}>
@@ -24,8 +24,6 @@ return (
         <h1 className="topic_slugA">{topic.slug}</h1>
         <img className="topic_img_card" src={imgUrl}></img>
         <p className="topic_description">{topic.description}</p>
-        {/* <Link to={`/articles/topics/${slug}`} state={{from:slug}}> Go to articles</Link> */}
-      {/* <Link to={`/articles/topics/${slug}`}> Go to articles</Link> */}
     </article>
     </div>
 )

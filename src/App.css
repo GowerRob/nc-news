@@ -6,7 +6,9 @@
     margin:0;
     scroll-behavior: smooth;
 }
-
+.noResponse{
+    color:white;
+}
 body{
     background: var(--color-bg);
 }
