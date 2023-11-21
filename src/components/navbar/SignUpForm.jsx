@@ -53,7 +53,7 @@ const handleFailLogin=()=>{
 
 
     return (
-        <>
+        <div className="modal-content">
             <form className="npp__navbar-signup">
                 <label htmlFor="usernameInput" className='navLabel'>
                     Enter username: 
@@ -83,13 +83,13 @@ const handleFailLogin=()=>{
                     </input>
                 </label>
 
-                <button onClick={handleSignUp}>Sign Up</button>
-                <button onClick={closeSignUp}>Cancel</button>
+                <button onClick={handleSignUp} className="signInButtons">Sign Up</button>
+                <button onClick={closeSignUp} className="cancelButtons">Cancel</button>
                 {failedLogin&&<p>Failed signup. Try a different username</p>}
                 {postedUser}
             </form>
 
-        </>
+        </div>
     )
 }
 

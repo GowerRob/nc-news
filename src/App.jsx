@@ -9,6 +9,7 @@ import NoTopic from './components/NoTopic';
 import NoPath from './components/NoPath';
 import NoArticle from './components/NoArticle';
 import Search from './components/search/Search';
+import About from './components/about/About';
 
 import './App.css'
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/topics" element={<TopicList />}></Route>
         <Route path="/articles/topics/:topic" element={<TopicArticlePage />}></Route>
         <Route path="/login" element={<LoginPage />}></Route>
+        <Route path="/about" element={<About />}></Route>
         <Route path="/noarticle" element={<NoArticle />}></Route> 
         <Route path="/notopic" element={<NoTopic />}></Route> 
         <Route path="/*" element={<NoPath />}></Route> 

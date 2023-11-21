@@ -3,7 +3,11 @@ const UserCard= ({user})=>{
    
 
     return (
-        <p>{user}</p>
+        <div className="userCard">
+            <p>{user}</p>
+
+        </div>
+        
     )
 
   

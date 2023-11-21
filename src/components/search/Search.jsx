@@ -13,7 +13,7 @@ const Search = () => {
     const [searchParams]=useSearchParams();
     const [articles,setArticles]=useState(0);
     const [isLoading, setIsLoading] = useState(true);
-    const [searchNew,setSearchNew]=useState();
+    const [searchNew,setSearchNew]=useState('');
     const [allArticles, setAllArticles]=useState([])
 
     useEffect(()=>{
@@ -51,7 +51,7 @@ const Search = () => {
            <SearchBar setNewSearch={setSearchNew} handleSearch={handleSearch}/>
         </div>
         {isLoading&&<LoadingBar/>}
-        {(articles.length===0)&&<h2>Sorry, we have not found any articles for you. Try a different search term</h2>}
+        {(articles.length===0)&&(!searchNew.length===0)&&<h2>Sorry, we have not found any articles for you. Try a different search term</h2>}
         {!isLoading&&
         <div className='npp__article-list-container'>
             {articles.map((article)=>{ 

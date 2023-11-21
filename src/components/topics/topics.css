@@ -31,6 +31,53 @@ a{
 
 }
 
+
+.buttonContainer{
+    display: flex;
+    flex-direction: column;
+
+}
+.signInButtons{
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    color:#fff;
+    background:#FF4820;
+    font-family: var(--font-family);
+    font-weight:500;
+    border-radius: 5px;
+    border:none;
+    outline:none;
+    cursor: pointer;
+    width:60%;
+    align-self: center;
+    margin-bottom:0.25rem;
+
+}
+
+.signOut{
+    display:flex;
+    width:200px;
+    justify-content: end;
+    margin-right: 1rem;;
+}
+
+.cancelButtons{
+    padding: 0.5rem 1rem;
+    color:#fff;
+    background:rgba(10, 51, 231, 0.678);
+    font-family: var(--font-family);
+    font-weight:500;
+    border-radius: 5px;
+    border:none;
+    outline:none;
+    cursor: pointer;
+    width:60%;
+    align-self: center;
+
+}
+
+
+
 .section__padding{
     padding:4rem 6rem;
 }
@@ -44,6 +91,29 @@ a{
 	        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
+.modal-content-newTopic {
+    display:flex;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: #f1f1f1;
+    padding: 14px 28px;
+    border-radius: 7px;
+    max-width: 600px;
+    min-width: 300px; 
+
+    height:500px; 
+    justify-content: center;
+    align-items: center;
+}
+.modal-content-newTopic input{
+    margin-top:0.5rem;
+    margin-bottom:1.5rem;
+    border: 2px solid black;
+    border-radius: 3px;;
+}
 
  @-webkit-keyframes scale-up-center {
     0% {

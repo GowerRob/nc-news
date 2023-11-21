@@ -25,7 +25,7 @@ const Navbar = () => {
       <p onClick={()=>setToggleMenu(false)}><Link to={`/search`} className="Link">Search</Link></p>
       <p onClick={()=>setToggleMenu(false)}><Link to={`/topics`} className="Link">Topics</Link></p>
       <p onClick={()=>setToggleMenu(false)}><Link to={`/login`} className="Link">Users</Link></p>
-      <p onClick={()=>setToggleMenu(false)}><Link to={`/login`} className="Link">About</Link></p>
+      <p onClick={()=>setToggleMenu(false)}><Link to={`/about`} className="Link">About</Link></p>
       
       
     </>
@@ -36,7 +36,7 @@ const Navbar = () => {
               {visible && <>
               <div className='overlay'
               onClick={closeModal}></div>
-              <div className="modal-content">{children} </div>   
+              <div >{children} </div>   
               </>}
               </>
           
@@ -47,7 +47,7 @@ const Navbar = () => {
   const openSignIn=()=>{
     setSignInVisible(true)};
 
-  const closeSignIn=()=>{console.log("SignClose");setSignInVisible(false);};
+  const closeSignIn=()=>{setSignInVisible(false);};
   
   const openSignUp=()=>{
     setSignUpVisible(true)};
@@ -61,13 +61,21 @@ const Navbar = () => {
 
   useEffect((
   )=>{
-    console.log(user)
     if(user!==null){
       setLoggedIn(true)
     }
   
   },[toggleMenu,user])
 
+
+  const handleOpen=()=>{
+    setToggleMenu(true);    
+    const timer =  setTimeout(() => {
+      setToggleMenu(false);   
+  }, 5000)
+   return () => clearTimeout(timer);
+
+  }
 
 
   return (
@@ -76,7 +84,6 @@ const Navbar = () => {
         <div className='npp__navbar-links_logo'>
           <h2>NPP-News</h2>
         </div>
-        {loggedIn&&<p>{user.username}</p>}
         {/* user&&<p className="loggedInAlert">{user.username}</p> */}
         <div className='npp__navbar-links_container'>
             <Menu />
@@ -91,12 +98,16 @@ const Navbar = () => {
         onClick={openSignUp}>
             Sign Up
         </button>
-      </div>:<button type='button'
-        onClick={signOut}>Sign Out</button>}
+      </div>:
+      <div className='signOut'><button type='button'
+        onClick={signOut}
+        className="signInButtons">Sign Out</button></div>
+
+        }
       <div className='npp__navbar-menu'>
         {toggleMenu
         ?<RiCloseLine color='#fff' size={27} onClick={()=>setToggleMenu(false)}></RiCloseLine>
-        :<RiMenu3Line color='#fff' size={27} onClick={()=>setToggleMenu(true)}></RiMenu3Line>
+        :<RiMenu3Line color='#fff' size={27} onClick={handleOpen}></RiMenu3Line>
         }
         {toggleMenu && (
           <div className='npp__navbar-menu_container scale-up-center'>

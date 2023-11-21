@@ -11,7 +11,7 @@ const LoadingBar =()=>{
                 <div className="LoadingDot"></div>
                 <div className="LoadingDot"></div>
                 </div>
-                <h2 className="waitText">Thank you for waiting... we are using a free server</h2>
+                <h2 className="waitText">Thanks for waiting... we are using a free hosting service, it's probably waking up :)</h2>
 
              </div>
             
