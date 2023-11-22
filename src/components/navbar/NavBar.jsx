@@ -1,6 +1,5 @@
 import {useEffect, useState,useContext} from 'react'
 import {RiMenu3Line, RiCloseLine} from 'react-icons/ri'
-//import logo from '../../assets/logo.svg'
 import './navbar.css'
 import { Link } from "react-router-dom";
 import SignInForm from './SignInForm';
@@ -132,7 +131,7 @@ const Navbar = () => {
             </PopUpModal>
 
             <PopUpModal visible={signUpVisible} closeSignUp={closeSignUp} >
-                <SignUpForm closeSignUp={closeSignUp}/>
+                <SignUpForm closeSignUp={closeSignUp} setLoggedInExt={setLoggedIn}/>
             </PopUpModal>
 
 

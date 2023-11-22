@@ -20,7 +20,6 @@ const TopicArticlePage = ()=>{
     useEffect(()=>{
         getArticles(searchParams)
         .then((articles)=>{
-            console.log("Yep")
             const filtered=articles.filter((article)=>{
               return article.topic===topic
             })
@@ -49,7 +48,6 @@ const TopicArticlePage = ()=>{
             </li>
             )
         })}
-    <button>Add Article</button>
     </ul>
     </>   
 )

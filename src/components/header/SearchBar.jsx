@@ -1,12 +1,6 @@
-import { useEffect,useState } from 'react'
 import './header.css'
-
 const SearchBar= ({setSearch, handleSearch}) => {
-    
 
-useEffect(()=>{
-
-})
 
   return (
   <>
