@@ -55,8 +55,6 @@ const ArticleInterface = ()=>{
                 <p className="articleBody">{article.body}</p>
                 <p className="articleTitle">{article.title}</p>
                 <Voter className="articleVotes" type={"Votes"} votes={article.votes} update={updateArticleLikes}/>
-                
-                {/* <button>Delete Article</button> */}
             </section>
 
         </section>

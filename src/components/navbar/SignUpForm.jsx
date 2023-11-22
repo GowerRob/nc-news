@@ -4,7 +4,7 @@ import './navbar.css'
 import { postUser } from "../../apis/api";
 
 
-const SignUpForm = ({closeSignUp}) => {
+const SignUpForm = ({closeSignUp,setLoggedInExt}) => {
     const {user,setUser}=useContext(UserContext);
     const [entereredUsername, setentereredUsername]=useState("");
     const [entereredName, setEntereredName]=useState("");
@@ -28,10 +28,14 @@ const SignUpForm = ({closeSignUp}) => {
         postUser(postableUser)
         .then((response)=> {
             setSignUpConfirm(response.data.user.username)
+            setLoggedInExt(true);
+            closeSignUp();
           })
           .catch(()=> {
             setFailedLogin(true)
           });
+
+
     }
 
 
@@ -41,6 +45,7 @@ const SignUpForm = ({closeSignUp}) => {
             handleFailLogin();
         }
     },[failedLogin])
+
 
 const handleFailLogin=()=>{
     const timer =  setTimeout(() => {
@@ -81,6 +86,7 @@ const handleFailLogin=()=>{
                     value={entereredURL}
                     onChange={e=>setEntereredURL(e.target.value)} >
                     </input>
+                    <p>(Leave blank to use default avatar)</p>
                 </label>
 
                 <button onClick={handleSignUp} className="signInButtons">Sign Up</button>

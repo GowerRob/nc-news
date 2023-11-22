@@ -11,11 +11,9 @@ const secondsToTime=(seconds)=>{
         returnTime= `${Math.round(seconds/3600)} hours ago`
     }else
     if(seconds<2592000){
-        console.log("here")
         returnTime= `${Math.round(seconds/86400)} days ago`
     }else
     if(seconds<31536000){
-        console.log("here")
         returnTime= `${Math.round(seconds/2592000)} months ago`
     }else
     {

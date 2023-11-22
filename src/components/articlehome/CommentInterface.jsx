@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import {getCommentsById} from '../../apis/api'
 import CommentCard from "./CommentCard";
-import NewComment from "../NewComment"
+import NewComment from "./NewComment"
 import LoadingBar from '../loading/LoadingBar';
 import OrderSordCompComments from '../OrderSortCompComments'
 import {useSearchParams } from 'react-router-dom'
@@ -21,9 +21,6 @@ const CommentInterface = ()=>{
         .then((comments)=>{
             setComments(comments);
             setIsLoading(false);
-            console.log(comments)
-            console.log(order)
-
         })
     },[order, sortby])
 
@@ -32,9 +29,9 @@ const CommentInterface = ()=>{
     if (isLoading) return <LoadingBar/>
 
     return (
-        <section>
+        <div className="commentInterfaceContainer">
             <NewComment setComments={setComments}/>
-            <OrderSordCompComments order={order} sortby={sortby} setOrder={setOrder} setSortby={setSortby} />
+           {comments.length!==0 && <OrderSordCompComments order={order} sortby={sortby} setOrder={setOrder} setSortby={setSortby} />}
             { <ul className="CommentsList">
                 {comments.map((comment)=>{
                     return(
@@ -46,7 +43,7 @@ const CommentInterface = ()=>{
                 }
             </ul> }
               
-        </section>
+        </div>
     )
 
 
